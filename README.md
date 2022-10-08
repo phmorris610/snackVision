@@ -42,10 +42,10 @@ import matplotlib.pyplot as plt
 
 model = ExtraTreesClassifier()
 model.fit(X, y)
-# print(model.feature_importances_)
-# feat_import = pd.Series(model.feature_importances_, index=X.columns)
-# feat_import.nlargest(4).plot(kind='barh')
-# plt.show()
+print(model.feature_importances_)
+feat_import = pd.Series(model.feature_importances_, index=X.columns)
+feat_import.nlargest(4).plot(kind='barh')
+plt.show()
 # heatmap
 import seaborn as sns
 
@@ -68,12 +68,12 @@ pred = lreg.predict(X)
 score = lreg.score(X, y)
 print(score)
 cm = metrics.confusion_matrix(y, pred)
-# plt.figure(figsize=(9, 9))
-# sns.heatmap(cm, annot=True, fmt=".3f", linewidths=.5, square=True, cmap='Blues_r')
-# plt.ylabel('Actual label')
-# plt.xlabel('Predicted label')
-# all_sample_title = 'Accuracy Score: {0}'.format(score)
-# plt.title(all_sample_title, size=15)
+plt.figure(figsize=(9, 9))
+sns.heatmap(cm, annot=True, fmt=".3f", linewidths=.5, square=True, cmap='Blues_r')
+plt.ylabel('Actual label')
+plt.xlabel('Predicted label')
+all_sample_title = 'Accuracy Score: {0}'.format(score)
+plt.title(all_sample_title, size=15)
 # Judging from that accuracy lets not use Logistic Regression
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score, confusion_matrix, classification_report
